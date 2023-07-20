@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>公益数字图书馆</title>
     <style>
-        .book-cover
+        .book
         {
             display: inline-flex;
             flex-direction: column;
             vertical-align: bottom;
         }
-        .book-cover > img
+        .book > img
         {
             width: 200px;
         }
@@ -27,8 +27,55 @@
     <a href="https://www.tbookk.com/">图书狂 图书pdf分享</a>
     <a href="https://ebook365.org/">电子书365</a>
     
+    <!-- 单书模板 -->
+     <!-- <div class="book-cover">
+        <img width="200px" src="事半功倍 赚钱秘诀/cover.jpg" alt="">
+        <a href="事半功倍 赚钱秘诀/事半功倍 赚钱秘诀.zip">《事半功倍 赚钱秘诀》-广州出版社</a>
+        <p>up: 创艺</p>-->
+    <div id="books-content">
+
+    </div>
+    <script>
+        // 量大使用jsRender模板引擎重构
+        const bookshelf = document.getElementById("books-content")
+        var Books={
+                "books":[
+                    {"标题":"文化江苏","封面":"/公益数字图书馆/文化江苏/cover.jpg","链接":"https://wwzs.lanzouk.com/iClYR11scwdi","uploader":"创艺"},
+                    {"标题":"意念力 激发你的潜在力量","封面":"/公益数字图书馆/意念力 激发你的潜在力量/cover.jpg","链接":"","uploader":"创艺"},
+                    {"标题":"别输在太敏感上","封面":"","链接":"","uploader":"创艺"}
+                    
+                 ]
+                }
+        var books = Books.books
+        var books
+        // 遍历并自动生成node
+        for(var i=0;i<books.length;i++)
+        {
+            var div = document.createElement("div")
+            div.className = "book"
+
+            var img = document.createElement("img")
+            img.src = books[i].封面
+            img.alt = books[i].封面
+            img.width = "200px"
+
+            var link = document.createElement("a")
+            link.href = books[i].链接
+            link.innerText = books[i].标题
+
+            var p = document.createElement("p")
+            p.innerText = "up:" + books[i].uploader
+            
+            div.append(img)
+            div.append(link)
+            div.append(p)
+            bookshelf.append(div)
+        }
+        
+        
+    </script>
     <br/>
-    <div class="book-cover">
+    <!-- <div class="book-cover">
         <img width="200px" src="事半功倍 赚钱秘诀/cover.jpg" alt="">
         <a href="事半功倍 赚钱秘诀/事半功倍 赚钱秘诀.zip">《事半功倍 赚钱秘诀》-广州出版社</a>
         <p>up: 创艺</p>
@@ -175,7 +222,7 @@
         <img src="人间失格/cover.webp" alt="">
         <a href="https://tc5.us/file/22069390-404886895"> 《人间失格》-北京燕山出版社</a>
         <a href="http://ys-d.ysepan.com/620861735/916604140/UKjRgMq495K344L4TQWK3c/%E4%BA%BA%E9%97%B4%E5%A4%B1%E6%A0%BC-%E5%A4%AA%E5%AE%B0%E6%B2%BB.zip">永硕e盘源</a>
-    </div>
+    </div> -->
     <h2>外文资料</h2>
     <a href="外文资料/Designing Sound (Andy Farnell) (z-lib.org).pdf">Designing Sound</a>
     <!-- 广告位 -->
